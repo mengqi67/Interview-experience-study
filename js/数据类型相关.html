@@ -1,0 +1,125 @@
+<!--
+ * @Author: ymq
+ * @Date: 2021-11-23 14:24:08
+ * @LastEditTime: 2021-11-23 18:49:02
+ * @LastEditors: ymq
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>介绍一下Set,Map,WeakSet, WeakMap的区别</h2>
+    <article>
+        <p>先来回顾一下他们： </p>
+        <h3>Set</h3>
+        Set是类似数组的集合，可以存储任意类型的值，无序但唯一。可用于数组去重<br/>
+        <code>let set1 = new Set([3,4,5])</code><br>
+        Set的方法：<br/>
+        <code>add(value), delete(value), has(value), clear()</code><br/>
+        <br>
+        Set的属性：<br/>
+        <code>size //相当于数组length</code><br>
+        <br>
+        Set的遍历：<br>
+        <code>
+            keys() // 返回Set中所有键的迭代器 （若没有键则为值本身） <br>
+            values() // 返回Set中所有值的迭代器 <br>
+            entries() // 返回Set中所有键值对的迭代器    <br>
+            for...of... <br>
+            forEach <br>
+            map <br>
+            filter  <br>
+
+        </code>
+        <br>
+        使用set很容易实现集合的操作如交集、并集、差集
+
+        <h3>WeakSet</h3>
+        WeakSet与Set类似， 但它只能存储对象的引用。而且它对于对象的引用是弱引用。当对象不再被使用时，可以被垃圾回收机制回收。<br>
+        WeakSet的方法：<br>
+        <code>add(value), delete(value), has(value)</code><br/>
+        其实我不理解，WeakSet存储的内容如何被回收。在下面的例子中已经删除了window的属性，但WeakSet中的对象仍然存在。
+
+        <h3>Map</h3>
+        Map是类似对象的结构，不过它可以将任意值作为key，比如对象<br>
+        Map的方法：<br/>
+        <code>set(key, value), get(key), delete(value), has(value), clear()</code><br/>
+        Map的属性与遍历和Set基本相同
+
+        <h3>WeakMap</h3>
+        WeakMap与Map类似， 但它只能将对象作为key，并且对key的引用是弱引用。但对value的引用是正常的。<br>
+        Map的方法：<br/>
+        <code>set(key, value), get(key), delete(value), has(value)</code><br/>
+
+        <p>总结一下：Set一般用于存值， Map用于存key:value的数据。WeakSet和WeakMap 对于对象（key对象）的引用是弱引用，可以被垃圾回收。</p>
+
+
+
+    </article>
+
+    <script>
+
+        const set1 = new Set([3,2,1])
+        const set2 = new Set([4,3,2])
+
+        // 并集
+        function union(set1, set2) {
+            let set = new Set([...set1, ...set2])
+            return set
+        }
+        console.log(union(set1, set2))
+
+        // 交集
+        function intersection(set1, set2) {
+            let set = new Set()
+            for(let item of set1){
+                if(set2.has(item)){
+                    set.add(item)
+                }
+            }
+            return set
+        }
+        console.log(intersection(set1, set2))
+
+        // 差集
+        function difference(set1, set2) {   // 属于set1但不属于set2的合集
+            let set = new Set([...set1])
+            for (const item of set1) {
+                if(set2.has(item)){
+                    set.delete(item)
+                }
+            }
+            return set
+        }
+        console.log(difference(set1, set2))
+
+
+
+        const ws = new WeakSet()
+        obj = {}
+
+        window.myObj = obj
+
+        ws.add(obj)
+
+        console.log(ws);
+        delete window.myObj
+        delete window.obj
+        setTimeout(() => {
+            
+            console.log(ws);
+        }, 1000);
+
+
+        const map1 = new Map()
+        map1.set({a:1}, 'content')
+        console.log(map1);
+    </script>
+</body>
+</html>

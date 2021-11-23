@@ -1,0 +1,78 @@
+<!--
+ * @Author: ymq
+ * @Date: 2021-11-23 13:55:20
+ * @LastEditTime: 2021-11-23 14:26:54
+ * @LastEditors: ymq
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>什么是防抖？如何实现？</h2>
+    <p>
+        答：防抖是在触发事件n秒后执行一次函数，若n秒内再次触发事件，将重新计时。<br>
+        比如input输入结束后200ms执行搜索，若持续输入，则在输入停止后200ms执行搜索
+    </p>
+
+    <input type="text" id="debounce" placeholder="我是防抖input">
+    <span>即将搜索：<span id="debounceResult"></span></span>
+
+    <p>总结：先clearTimeout，再定义setTimeout</p>
+
+    <h2>什么是节流？如何实现？</h2>
+    <p>
+        答：节流是在触发事件n秒后执行一次函数，若n秒内再次触发事件，无效。<br>
+        比如input输入结束后200ms执行搜索，若持续输入，则每200ms执行一次搜索
+    </p>
+
+    <input type="text" id="throttle" placeholder="我是节流input">
+    <span>即将搜索：<span id="throttleResult"></span></span>
+
+    <p>总结：执行完timeOut，将timeOut置为null，相当于ajax请求时保存isloaing变量</p>
+
+    <script>
+        // 防抖方法
+        let debounceInput = document.getElementById('debounce');
+        debounceInput.addEventListener('input', debounce(printValue1))
+        function debounce(fn) {
+            let timeOut = null
+            return function () {
+                clearTimeout(timeOut)
+                timeOut = setTimeout(() => {
+                    fn.apply(this, arguments)
+                }, 1000);
+            }
+        }
+        function printValue1(e) {
+            console.log(e.target.value)
+            document.getElementById('debounceResult').innerText = e.target.value
+        }
+
+
+        // 节流方法
+        const throttleInput = document.getElementById('throttle')
+        throttleInput.addEventListener('input', throttle(printValue2))
+        function throttle(fn) {
+            let timeOut = null
+            return function (params) {
+                if(timeOut) return
+                timeOut = setTimeout(() => {
+                   fn.apply(this, arguments) 
+                   clearTimeout(timeOut)
+                   timeOut = null
+                }, 1000);
+            }
+        }
+        function printValue2(e) {
+            console.log(e.target.value)
+            document.getElementById('throttleResult').innerText = e.target.value
+        }
+    </script>
+</body>
+</html>

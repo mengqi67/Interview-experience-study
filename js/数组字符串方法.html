@@ -1,0 +1,35 @@
+<!--
+ * @Author: ymq
+ * @Date: 2021-11-23 10:35:41
+ * @LastEditTime: 2021-11-23 10:48:23
+ * @LastEditors: ymq
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <li>
+            <p>['1','2','3'].map(parseInt) 的返回值是什么?</p>
+            <p><span>答案：</span><span id="answer1"></span><span>（结果为数组）</span></p>
+            <p>
+                解析：执行map方法相当于执行parseInt(value, index);<br>
+                    parseInt('1', 0) --> 1  <br>
+                    parseInt('2', 1) --> NaN<br>
+                    parseInt('3', 2) --> NaN<br>
+            </p>
+        </li>
+    </ol>
+    <script>
+        let answer1 = ['1','2','3'].map(parseInt)
+        console.log(answer1);
+        document.getElementById('answer1').innerText = answer1
+    </script>
+</body>
+</html>
