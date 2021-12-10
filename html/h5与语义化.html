@@ -1,0 +1,75 @@
+<!--
+ * @Author: ymq
+ * @Date: 2021-12-10 10:43:22
+ * @LastEditTime: 2021-12-10 11:29:57
+ * @LastEditors: ymq
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html语义化</title>
+    <style>
+        em,small,strong,abbr{
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>这是一个使用语义化标签的页面</h1>
+        <nav>
+            <ul>
+                <li>导航1</li>
+                <li>导航2</li>
+                <li>其实什么都没有</li>
+            </ul>
+        </nav>
+    </header>
+    <article>
+        <h2>html语义化</h2>
+        <section>
+            <h3>什么是html语义化？</h3>
+            <p>使用带有含义的标签如h1，ul，li，使得代码更容易理解，提升可读性。</p>
+        </section>
+        <section>
+            <h3>html语义化的优点？</h3>
+            <ul>
+                <li>代码结构: 使页面没有css的情况下，也能够呈现出很好的内容结构</li>
+                <li>有利于SEO: 爬虫依赖标签来确定关键字的权重，因此可以和搜索引擎建立良好的沟通，帮助爬虫抓取更多的有效信息</li>
+                <li>提升用户体验： 例如title、alt可以用于解释名称或者解释图片信息，以及label标签的灵活运用。</li>
+                <li>便于团队开发和维护: 语义化使得代码更具有可读性，让其他开发人员更加理解你的html结构，减少差异化。</li>
+                <li>方便其他设备解析: 如屏幕阅读器、盲人阅读器、移动设备等，以有意义的方式来渲染网页。</li>
+            </ul>
+        </section>
+        <section>
+            <h3>常用的语义化标签</h3>
+            <ol>
+                <li>header：一般包含logo，站名，导航等</li>
+                <li>nav： 导航</li>
+                <li>h1-h6: 标题 从1-6权重降低</li>
+                <li>main： 定义页面的主要内容，一个页面只能使用一次。如果是web应用，则包围其主要功能。</li>
+                <li>article: 用于展示文章，可有自己的header，footer，section</li>
+                <li>section： 文章的章节</li>
+                <li>blockquote: 块引用，定义引用内容，有默认margin样式，cite属性指定来源，但并无表现
+                    <blockquote cite="https://blog.csdn.net/qq_38128179/article/details/80811339">
+                        这篇文章就参考这里
+                    </blockquote>
+                </li>
+                <li>aside： 侧边栏</li>
+                <li>footer： 底部信息区</li>
+                <li>small： 定义字体小且不重要的文字，提示性文字 <small>你看我小不小</small></li>
+                <li>strong： 强调，加粗文字 <strong>记不记得住？</strong></li>
+                <li>em： 斜体文字 <em>哎呀要倒啦</em> </li>
+                <li>abbr：解释缩写词。例如：<abbr title="html5">h5</abbr>, <abbr title="javascript">js</abbr></li>
+                <p>以上1-9皆为block元素，其余为行内元素。为了好区分，给他们加了灰色</p>
+            </ol>
+        </section>
+    </article>
+    <aside>这是aside侧边栏</aside>
+    <footer>这是footer底栏 著作权属于衣大宝</footer>
+</body>
+</html>

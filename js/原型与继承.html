@@ -1,0 +1,47 @@
+<!--
+ * @Author: ymq
+ * @Date: 2021-12-09 17:22:53
+ * @LastEditTime: 2021-12-09 18:34:38
+ * @LastEditors: ymq
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型与继承</title>
+</head>
+<body>
+    <header>原型与继承</header>
+    <article>
+        <section>
+            <p>先来了解一下Object.create方法。它接收2个参数
+                <code>Object.create(proto, [propertiesObject])</code><br>
+                proto表示生成对象的原型属性也就是__proto__, [propertiesObject]表示对象属性及其描述符。例如<code>{a: {value: 1, writable: true}}</code><br>
+                举例：若定义person对象，属性值忽略，定义me对象 = Object.create(person, {a: {value: 1}})，则me的__proto__属性指向person，并且me自身有a属性，值为1。<br>
+                若定义时proto参数传null，则是一个与Object无关的对象，也不能使用Object原型的属性
+            </p>
+        </section>
+    </article>
+
+    <script>
+        const person = {
+            isHuman: false,
+            printIntroduction: function() {
+                console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+            }
+        };
+        console.log(person);
+
+        const me = Object.create(person, {a: {value: 1}});
+        console.log(me);
+
+        function Person(name) {
+            this.name = name
+        }
+        const person1 = new Person('ala')
+    </script>
+</body>
+</html>
