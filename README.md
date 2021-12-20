@@ -1,7 +1,7 @@
 <!--
  * @Author: ymq
  * @Date: 2021-11-23 18:50:38
- * @LastEditTime: 2021-12-10 10:45:16
+ * @LastEditTime: 2021-12-20 20:23:16
  * @LastEditors: ymq
  * @Description: 
 -->
@@ -28,6 +28,7 @@
 ## html
 
 * h5与语义化
+* 国际化与seo：vue-i18n, meta
 
 # 其他
 

@@ -1,7 +1,7 @@
 <!--
  * @Author: ymq
  * @Date: 2021-12-14 16:12:31
- * @LastEditTime: 2021-12-20 20:06:46
+ * @LastEditTime: 2021-12-20 20:20:46
  * @LastEditors: ymq
  * @Description: 
 -->
@@ -21,7 +21,7 @@
 
 ## 前端渲染的文字
 
-可以使用vue-i18n<https://vue-i18n.intlify.dev/installation.html#npm>
+可以使用[vue-i18n](https://vue-i18n.intlify.dev/installation.html#npm)
 vue-i18n@next适用于vue3
 
 它的实现原理不是我们想象的自动转换语言，而是需要编写配置，每个单词每个句子都写好对应语言，渲染的时候根据语言取对应的配置。
