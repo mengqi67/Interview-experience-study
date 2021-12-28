@@ -1,0 +1,42 @@
+<!--
+ * @Author: ymq
+ * @Date: 2021-12-28 11:23:16
+ * @LastEditTime: 2021-12-28 13:44:49
+ * @LastEditors: ymq
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="log"></div>
+    <script>
+        
+        addNode('text','开始尝试连接ws...')
+        const ws = new WebSocket('ws://localhost:5000')
+        ws.addEventListener('open', (e) => {
+            addNode('text', '连接成功')
+            ws.send('start connet')
+        })
+
+        ws.addEventListener('error', (e) => {
+            addNode('text', '连接失败')
+            console.log(e);
+        })
+
+        function addNode(type, value) {
+            let node
+            if(type = 'text'){
+                node = document.createElement('p')
+                node.innerText = value
+            }
+            log.appendChild(node)
+        }
+    </script>
+</body>
+</html>
