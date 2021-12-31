@@ -1,7 +1,7 @@
 <!--
  * @Author: ymq
  * @Date: 2021-11-23 18:50:38
- * @LastEditTime: 2021-12-20 20:23:16
+ * @LastEditTime: 2021-12-30 15:08:08
  * @LastEditors: ymq
  * @Description: 
 -->
@@ -29,6 +29,7 @@
 
 * h5与语义化
 * 国际化与seo：vue-i18n, meta
+* 浏览器解析过程： js、css加载顺序
 
 # 其他
 

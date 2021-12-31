@@ -1,7 +1,7 @@
 <!--
  * @Author: ymq
  * @Date: 2021-12-28 11:23:16
- * @LastEditTime: 2021-12-28 13:44:49
+ * @LastEditTime: 2021-12-28 19:22:53
  * @LastEditors: ymq
  * @Description: 
 -->
@@ -14,6 +14,8 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="text" id="input" placeholder="请输入要发送给服务器的内容">
+    <button onclick="sendToServe()">发送</button>
     <div id="log"></div>
     <script>
         
@@ -29,6 +31,10 @@
             console.log(e);
         })
 
+        ws.addEventListener('message', e => {
+            addNode('text', e.data)
+        })
+
         function addNode(type, value) {
             let node
             if(type = 'text'){
@@ -36,6 +42,13 @@
                 node.innerText = value
             }
             log.appendChild(node)
+        }
+
+        function sendToServe(params) {
+            // console.log(input.value);
+            let value = input.value
+            addNode('text', '客户端发送：'+ value)
+            ws.send(value)
         }
     </script>
 </body>
