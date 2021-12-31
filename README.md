@@ -1,7 +1,7 @@
 <!--
  * @Author: ymq
  * @Date: 2021-11-23 18:50:38
- * @LastEditTime: 2021-12-30 15:08:08
+ * @LastEditTime: 2021-12-31 17:41:24
  * @LastEditors: ymq
  * @Description: 
 -->
@@ -14,12 +14,17 @@
 
 * 深度优先与广度优先：二叉树2种遍历 `todo: 用深度遍历和广度遍历思想实现拷贝`
 
+## 网络
+
+websocket 实现在线聊天室
+
 ## js
 
 * 防抖和节流
 * 数据类型相关：Set,Map,WeakSet, WeakMap
 * 数组字符串方法：map
 * 原型与继承：Object.create, `todo: 继承的几种方法`
+* 性能监控：performance
 
 ## vue
 
