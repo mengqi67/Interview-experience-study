@@ -1,7 +1,7 @@
 <!--
  * @Author: ymq
  * @Date: 2021-11-23 18:50:38
- * @LastEditTime: 2021-12-31 17:41:24
+ * @LastEditTime: 2025-04-07 15:00:31
  * @LastEditors: ymq
  * @Description: 
 -->
@@ -25,6 +25,7 @@ websocket 实现在线聊天室
 * 数组字符串方法：map
 * 原型与继承：Object.create, `todo: 继承的几种方法`
 * 性能监控：performance
+* 大文件上传： file.slice(), spark-md5, webWorker
 
 ## vue
 

@@ -1,11 +1,13 @@
 /*
  * @Author: ymq
  * @Date: 2025-04-07 12:43:42
- * @LastEditTime: 2025-04-07 13:11:09
+ * @LastEditTime: 2025-04-07 14:58:41
  * @LastEditors: ymq
  * @Description: 大文件上传 -- 处理hash值
  */
+// 引入spark-md5 需要改下它的源码 最后一行export注释掉
 importScripts('spark-md5.js')
+
 self.addEventListener('message', ({ data }) => {
     const { file, chunkSize } = data;
     const chunks = createChunks(file, chunkSize);
